@@ -31,15 +31,18 @@ class Hotel(models.Model):
 
 class Quarto(models.Model):
 	hotel = models.ForeignKey(verbose_name='Hotel', to=Hotel, on_delete=models.CASCADE)
-	num_quarto = models.IntegerField(verbose_name='Número de Quartos')
+	num_quarto = models.IntegerField(verbose_name='Número do Quarto')
 	num_camas_solteiro = models.IntegerField(verbose_name='Camas de Solteiro')
 	num_camas_casal = models.IntegerField(verbose_name='Camas de Casal')
 
 	def __str__(self):
-		return 'Quarto no hotel ' + self.hotel.nome
+		return 'Quarto '+ str(self.num_quarto) +' no hotel ' + self.hotel.nome
 
 
 class RecomendacaoHotel(models.Model):
 	hotel = models.ForeignKey(verbose_name='Hotel', to=Hotel, on_delete=models.CASCADE)
 	cliente = models.ForeignKey(verbose_name='Cliente', to=Cliente, on_delete=models.CASCADE)
 	descricao = models.TextField(verbose_name='Descrição', null=True, blank=True)
+
+	def __str__(self):
+		return 'Recomendando '+self.hotel.nome+' para '+self.cliente.pessoa.nome
