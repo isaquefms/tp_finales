@@ -39,6 +39,20 @@
       {% csrf_token %}
       {{ form.as_p }}
       <input type="submit" value="Submit">
-  </form>
+    </form>
+    <br>
+    {% if tipo == 'clientes' %}
+      <a href="{% url 'cliente_delete' cliente.id %}" style="color: red;">Deletar Cliente</a>
+    {% elif tipo == 'hoteis' %}
+        <a href="{% url 'hotel_delete' hotel.id %}" style="color: red;">Deletar Hotel</a>
+    {% elif tipo == 'quartos' %}
+        <a href="{% url 'quarto_delete' quarto.id %}" style="color: red;">Deletar Quarto</a>
+    {% elif tipo == 'recomendacoes' %}
+        <a href="{% url 'recomendacao_delete' recomendacao.id %}" style="color: red;">Deletar Recomendação</a>
+    {% elif tipo == 'pessoas' %}
+        <a href="{% url 'pessoa_delete' pessoa.id %}" style="color: red;">Deletar Pessoa</a>
+    {% else %}
+        Erro!
+    {% endif %}
   </body>
 </html>

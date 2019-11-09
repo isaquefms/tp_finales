@@ -40,9 +40,8 @@ def cliente_edit(request, cliente_id):
     return render(request, 'edit.html', context=context)
 
 def cliente_delete(request, cliente_id):
-    context = dict()
-    Hotel.objects.delete(id=cliente_id)
-    context['tipo'] = 'clientes'
+    cliente = Cliente.objects.get(id=cliente_id)
+    cliente.delete()
     return redirect('cliente_view')
 #------------------Hoteis
 def hotel_create(request):
@@ -80,9 +79,8 @@ def hotel_edit(request, hotel_id):
     return render(request, 'edit.html', context=context)
 
 def hotel_delete(request, hotel_id):
-    context = dict()
-    Hotel.objects.delete(id=hotel_id)
-    context['tipo'] = 'hoteis'
+    hotel = Hotel.objects.get(id=hotel_id)
+    hotel.delete()
     return redirect('hotel_view')
 #------------------Quartos
 def quarto_create(request):
@@ -120,9 +118,8 @@ def quarto_edit(request, quarto_id):
     return render(request, 'edit.html', context=context)
 
 def quarto_delete(request, quarto_id):
-    context = dict()
-    Quarto.objects.delete(id=quarto_id)
-    context['tipo'] = 'quartos'
+    quarto = Quarto.objects.get(id=quarto_id)
+    quarto.delete()
     return redirect('quarto_view')
 #---------------Recomendacoes
 def recomendacao_create(request):
@@ -160,9 +157,8 @@ def recomendacao_edit(request, recomendacao_id):
     return render(request, 'edit.html', context=context)
 
 def recomendacao_delete(request, recomendacao_id):
-    context = dict()
-    Recomendacao.objects.delete(id=recomendacao_id)
-    context['tipo'] = 'recomendacoes'
+    recomendacao = RecomendacaoHotel.objects.get(id=recomendacao_id)
+    recomendacao.delete()
     return redirect('recomendacao_view')
 #--------------------Pessoa
 def pessoa_create(request):
@@ -200,7 +196,6 @@ def pessoa_edit(request, pessoa_id):
     return render(request, 'edit.html', context=context)
 
 def pessoa_delete(request, pessoa_id):
-    context = dict()
-    Hotel.objects.delete(id=pessoa_id)
-    context['tipo'] = 'pessoas'
+    pessoa = Pessoa.objects.get(id=pessoa_id)
+    pessoa.delete()
     return redirect('pessoa_view')
