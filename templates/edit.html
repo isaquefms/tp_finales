@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if tipo == 'clientes' %}
+          Clientes
+      {% elif tipo == 'hoteis' %}
+          Hoteis
+      {% elif tipo == 'quartos' %}
+          Quartos
+      {% elif tipo == 'recomendacoes' %}
+          Recomendacoes
+      {% elif tipo == 'pessoas' %}
+          Pessoas
+      {% else %}
+          Erro!
+      {% endif %}
+    </title>
+  </head>
+  <body>
+    <h1>
+      Visualizar
+      {% if tipo == 'clientes' %}
+          Cliente
+      {% elif tipo == 'hoteis' %}
+          Hotel
+      {% elif tipo == 'quartos' %}
+          Quarto
+      {% elif tipo == 'recomendacoes' %}
+          Recomendação
+      {% elif tipo == 'pessoas' %}
+          Pessoa
+      {% else %}
+          Erro!
+      {% endif %}
+    </h1>
+    <table>
+      {{form.as_table}}
+    </table>
+  </body>
+</html>
