@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if tipo == 'clientes' %}
+          Clientes
+      {% elif tipo == 'hoteis' %}
+          Hoteis
+      {% elif tipo == 'quartos' %}
+          Quartos
+      {% elif tipo == 'recomendacoes' %}
+          Recomendacoes
+      {% elif tipo == 'pessoas' %}
+          Pessoas
+      {% else %}
+          Erro!
+      {% endif %}
+    </title>
+  </head>
+  <body>
+    <h1>
+      Visualizar
+      {% if tipo == 'clientes' %}
+          Cliente
+      {% elif tipo == 'hoteis' %}
+          Hotel
+      {% elif tipo == 'quartos' %}
+          Quarto
+      {% elif tipo == 'recomendacoes' %}
+          Recomendação
+      {% elif tipo == 'pessoas' %}
+          Pessoa
+      {% else %}
+          Erro!
+      {% endif %}
+    </h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    {% if tipo == 'clientes' %}
+      <a href="{% url 'cliente_delete' cliente.id %}" style="color: red;">Deletar Cliente</a>
+    {% elif tipo == 'hoteis' %}
+        <a href="{% url 'hotel_delete' hotel.id %}" style="color: red;">Deletar Hotel</a>
+    {% elif tipo == 'quartos' %}
+        <a href="{% url 'quarto_delete' quarto.id %}" style="color: red;">Deletar Quarto</a>
+    {% elif tipo == 'recomendacoes' %}
+        <a href="{% url 'recomendacao_delete' recomendacao.id %}" style="color: red;">Deletar Recomendação</a>
+    {% elif tipo == 'pessoas' %}
+        <a href="{% url 'pessoa_delete' pessoa.id %}" style="color: red;">Deletar Pessoa</a>
+    {% else %}
+        Erro!
+    {% endif %}
+  </body>
+</html>

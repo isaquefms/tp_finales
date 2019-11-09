@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if tipo == 'clientes' %}
+          Clientes
+      {% elif tipo == 'hoteis' %}
+          Hoteis
+      {% elif tipo == 'quartos' %}
+          Quartos
+      {% elif tipo == 'recomendacoes' %}
+          Recomendacoes
+      {% elif tipo == 'pessoas' %}
+          Pessoas
+      {% else %}
+          Erro!
+      {% endif %}
+    </title>
+  </head>
+  <body>
+      {% if tipo == 'clientes' %}
+          <h1>Clientes</h1>
+          <div class="container">
+            {% for cliente in clientes %}
+              <div class="row">
+                {{ cliente }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif tipo == 'hoteis' %}
+          <h1>Hoteis</h1>
+          <div class="container">
+            {% for hotel in hoteis %}
+              <div class="row">
+                {{ hotel }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif tipo == 'quartos' %}
+          <h1>Quartos</h1>
+          <div class="container">
+            {% for quarto in quartos %}
+              <div class="row">
+                {{ quarto }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif tipo == 'recomendacoes' %}
+          <h1>Recomendacoes</h1>
+          <div class="container">
+            {% for recomendacao in recomendacoes %}
+              <div class="row">
+                {{ recomendacao }}
+              </div>
+            {% endfor %}
+          </div>
+      {% elif tipo == 'pessoas' %}
+          <h1>Pessoas</h1>
+          <div class="container">
+            {% for pessoa in pessoas %}
+              <div class="row">
+                {{ pessoa }}
+              </div>
+            {% endfor %}
+          </div>
+      {% else %}
+          <h1>Erro!</h1>
+      {% endif %}
+  </body>
+</html>
