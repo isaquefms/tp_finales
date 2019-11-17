@@ -15,9 +15,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from apps.api.views import pessoa_create, pessoa_view, pessoa_edit, pessoa_delete, cliente_create, cliente_view, cliente_edit, cliente_delete, hotel_view, hotel_create, hotel_edit, hotel_delete, quarto_view, quarto_create, quarto_edit, quarto_delete, recomendacao_view, recomendacao_create, recomendacao_edit, recomendacao_delete
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'home.html')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home, name='home'),
     #Pessoa
     path('pessoa/create', pessoa_create, name='pessoa_create'),
     path('pessoa/view', pessoa_view, name='pessoa_view'),
