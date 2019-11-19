@@ -22,39 +22,44 @@
   <body>
       {% if tipo == 'clientes' %}
           <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Clientes</h1>
+          <a href="{% url 'cliente_create' %}" class="btn btn-primary">Novo</a>
           <ul class="container list-group">
             {% for cliente in clientes %}
-              <li class="text-center list-group-item">{{ cliente }}</li>  
+              <li class="text-center list-group-item"><a href="{% url 'cliente_edit' cliente.id %}">{{ cliente }}</a></li>
             {% endfor %}
           </ul>
       {% elif tipo == 'hoteis' %}
           <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Hotéis</h1>
+          <a href="{% url 'hotel_create' %}" class="btn btn-primary">Novo</a>
           <ul class="container list-group"></ul>
             {% for hotel in hoteis %}
-              <li class="text-center list-group-item"> {{ hotel }}</li>
+              <li class="text-center list-group-item"><a href="{% url 'hotel_edit' hotel.id %}">{{ hotel }}</a></li>
             {% endfor %}
           </ul>
       {% elif tipo == 'quartos' %}
           <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Quartos</h1>
+          <a href="{% url 'quarto_create' %}" class="btn btn-primary">Novo</a>
           <ul class="container list-group">
             {% for quarto in quartos %}
-              <li class="text-center list-group-item">{{ quarto }}</li>
+              <li class="text-center list-group-item"><a href="{% url 'quarto_edit' quarto.id %}">{{ quarto }}</a></li>
             {% endfor %}
           </ul>
       {% elif tipo == 'recomendacoes' %}
           <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Recomendações</h1>
+          <a href="{% url 'recomendacao_create' %}" class="btn btn-primary">Nova</a>
           <ul class="container list-group">
             {% for recomendacao in recomendacoes %}
-              <li class="text-center list-group-item">{{ recomendacao }}</li>
+              <li class="text-center list-group-item"><a href="{% url 'recomendacao_edit' recomendacao.id %}">{{ recomendacao }}</a></li>
             {% endfor %}
-          </ul>  
+          </ul>
       {% elif tipo == 'pessoas' %}
           <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Pessoas</h1>
+            <a href="{% url 'pessoa_create' %}" class="btn btn-primary">Nova</a>
             <ul class="container list-group">
             {% for pessoa in pessoas %}
-                  <li class="text-center list-group-item">{{ pessoa }}</li>
+                  <li class="text-center list-group-item"><a href="{% url 'pessoa_edit' pessoa.id %}">{{ pessoa }}</a></li>
             {% endfor %}
-            </ul>          
+            </ul>
       {% else %}
           <h1>Erro!</h1>
       {% endif %}
