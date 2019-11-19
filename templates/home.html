@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
   <head>
     <meta charset="utf-8">
     <title>Eng Software</title>
   </head>
   <body>
+  <div class="jumbotron">
+    <div class="container">
+      <h3 class="display-6">Recomendações para todas as pessoas, com todos os gostos!</h3>
+      <p>Aqui você terá total liberdade para cadastrar um cliente e cadastrar recomendações de hotéis e quartos com acertividade!
+      Deixe de lado todos os seus problemas de marketing e venha utilizar nosso sistema, criado para ser SIMPLES e INTUITIVO.</p>
+    </div>
+  </div>
+
     <h1>Pessoa</h1>
       <a href="{% url 'pessoa_create' %}">Criar</a><br>
       <a href="{% url 'pessoa_view' %}">Listar</a>
@@ -22,3 +31,4 @@
       <a href="{% url 'recomendacao_view' %}">Listar</a>
   </body>
 </html>
+{% endblock %}
