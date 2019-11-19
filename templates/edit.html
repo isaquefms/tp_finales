@@ -37,25 +37,25 @@
           Erro!
       {% endif %}
     </h1>
-    <form method="post">
+    <form class="container col-6" method="post">
       {% csrf_token %}
       {{ form| crispy }}
-      <input type="submit" value="Submit">
+      <input class="btn btn-warning btn-block" type="submit" value="Editar">
+        <br>
+        {% if tipo == 'clientes' %}
+        <a class="container btn btn-outline-danger" href="{% url 'cliente_delete' cliente.id %}" >Deletar Cliente</a>
+        {% elif tipo == 'hoteis' %}
+            <a class="container btn btn-outline-danger" href="{% url 'hotel_delete' hotel.id %}" >Deletar Hotel</a>
+        {% elif tipo == 'quartos' %}
+            <a class="container btn btn-outline-danger" href="{% url 'quarto_delete' quarto.id %}" >Deletar Quarto</a>
+        {% elif tipo == 'recomendacoes' %}
+            <a class="container btn btn-outline-danger" href="{% url 'recomendacao_delete' recomendacao.id %}" >Deletar Recomendação</a>
+        {% elif tipo == 'pessoas' %}
+            <a class="container btn btn-outline-danger" href="{% url 'pessoa_delete' pessoa.id %}" >Deletar Pessoa</a>
+        {% else %}
+            Erro!
+        {% endif %}
     </form>
-    <br>
-    {% if tipo == 'clientes' %}
-      <a class="btn btn-btn-danger" href="{% url 'cliente_delete' cliente.id %}" >Deletar Cliente</a>
-    {% elif tipo == 'hoteis' %}
-        <a class="btn btn-btn-danger" href="{% url 'hotel_delete' hotel.id %}" >Deletar Hotel</a>
-    {% elif tipo == 'quartos' %}
-        <a class="btn btn-btn-danger" href="{% url 'quarto_delete' quarto.id %}" >Deletar Quarto</a>
-    {% elif tipo == 'recomendacoes' %}
-        <a class="btn btn-btn-danger" href="{% url 'recomendacao_delete' recomendacao.id %}" >Deletar Recomendação</a>
-    {% elif tipo == 'pessoas' %}
-        <a class="btn btn-btn-danger" href="{% url 'pessoa_delete' pessoa.id %}" >Deletar Pessoa</a>
-    {% else %}
-        Erro!
-    {% endif %}
   </body>
 </html>
 {% endblock %}
