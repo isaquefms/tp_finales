@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+  <h1>
+    Área de
+    {% if tipo == 'clientes' %}
+        Clientes
+    {% elif tipo == 'hoteis' %}
+        Hotéis
+    {% elif tipo == 'quartos' %}
+        Quartos
+    {% elif tipo == 'recomendacoes' %}
+        Recomendações
+    {% elif tipo == 'pessoas' %}
+        Pessoas
+    {% else %}
+        Erro!
+    {% endif %}
+  </h1>
+  {% if tipo == 'clientes' %}
+    <a href="{% url 'cliente_create' %}">Criar</a><br>
+    <a href="{% url 'cliente_view' %}">Listar</a>
+  {% elif tipo == 'hoteis' %}
+    <a href="{% url 'hotel_create' %}">Criar</a><br>
+    <a href="{% url 'hotel_view' %}">Listar</a>
+  {% elif tipo == 'quartos' %}
+    <a href="{% url 'quarto_create' %}">Criar</a><br>
+    <a href="{% url 'quarto_view' %}">Listar</a>
+  {% elif tipo == 'recomendacoes' %}
+    <a href="{% url 'recomendacao_create' %}">Criar</a><br>
+    <a href="{% url 'recomendacao_view' %}">Listar</a>
+  {% elif tipo == 'pessoas' %}
+    <a href="{% url 'pessoa_create' %}">Criar</a><br>
+    <a href="{% url 'pessoa_view' %}">Listar</a>
+  {% else %}
+      Erro!
+  {% endif %}
+</body>
+
+{% endblock %}

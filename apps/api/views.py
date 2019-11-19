@@ -4,6 +4,10 @@ from apps.core.models import Pessoa, Cliente, Hotel, Quarto, RecomendacaoHotel
 from django.forms.models import model_to_dict
 # Create your views here.
 
+def cliente(request):
+    context = dict()
+    context['tipo'] = 'clientes'
+    return render(request, 'model.html', context=context)
 
 def cliente_create(request):
     context = dict()
@@ -44,6 +48,11 @@ def cliente_delete(request, cliente_id):
     cliente.delete()
     return redirect('cliente_view')
 #------------------Hoteis
+def hotel(request):
+    context = dict()
+    context['tipo'] = 'hoteis'
+    return render(request, 'model.html', context=context)
+
 def hotel_create(request):
     context = dict()
     context['tipo'] = 'hoteis'
@@ -83,6 +92,11 @@ def hotel_delete(request, hotel_id):
     hotel.delete()
     return redirect('hotel_view')
 #------------------Quartos
+def quarto(request):
+    context = dict()
+    context['tipo'] = 'quartos'
+    return render(request, 'model.html', context=context)
+
 def quarto_create(request):
     context = dict()
     context['tipo'] = 'quartos'
@@ -122,6 +136,11 @@ def quarto_delete(request, quarto_id):
     quarto.delete()
     return redirect('quarto_view')
 #---------------Recomendacoes
+def recomendacao(request):
+    context = dict()
+    context['tipo'] = 'recomendacoes'
+    return render(request, 'model.html', context=context)
+
 def recomendacao_create(request):
     context = dict()
     context['tipo'] = 'recomendacoes'
@@ -161,6 +180,11 @@ def recomendacao_delete(request, recomendacao_id):
     recomendacao.delete()
     return redirect('recomendacao_view')
 #--------------------Pessoa
+def pessoa(request):
+    context = dict()
+    context['tipo'] = 'pessoas'
+    return render(request, 'model.html', context=context)
+
 def pessoa_create(request):
     context = dict()
     context['tipo'] = 'pessoas'
