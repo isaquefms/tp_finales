@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 <body>
-  <h1>
+  <div class="jumbotron">
+  <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-none p-3 mb-5 bg-white rounded">
     Área de
     {% if tipo == 'clientes' %}
         Clientes
@@ -19,23 +20,76 @@
     {% endif %}
   </h1>
   {% if tipo == 'clientes' %}
-    <a href="{% url 'cliente_create' %}">Criar</a><br>
-    <a href="{% url 'cliente_view' %}">Listar</a>
+    
+    <div class="container">
+      <h3 class="display-6">Os clientes irão até você!</h3>
+      <p>O sistema de recomendações trabalha para fazer com que clientes 
+        certos receberão a recomendação certa e seu produto será procurado 
+        pelo cliente e não o contrário! Esqueça os métodos antigos e cadastre
+        já seus clientes.
+      </p>
+    </div>
+    <ul class="md-6 container list-group list-group-horizontal-lg">
+        <a class="btn btn-outline-success" href="{% url 'cliente_create' %}">Cadastrar Cliente</a><br>
+        <a class="btn btn-outline-info" href="{% url 'cliente_view' %}">Listar Clientes</a>
+    </ul>
   {% elif tipo == 'hoteis' %}
-    <a href="{% url 'hotel_create' %}">Criar</a><br>
-    <a href="{% url 'hotel_view' %}">Listar</a>
+    <div class="container">
+      <h3 class="display-6">Hotéis reconhecidos e disputados!</h3>
+      <p>O que não é visto, não é lembrado! Hotéis recomendados às pessoas
+        certas tem uma chance de acerto muito maior que hotéis com seu próprio marketing.
+        Cadastre já seu hotel e entre no maior sistema de recomendações do BRASIL!
+      </p>
+    </div>
+    <ul class="md-6 container list-group list-group-horizontal-lg">
+      <a class="btn btn-outline-success" href="{% url 'hotel_create' %}">Cadastro de Hotel</a><br>
+      <a class="btn btn-outline-info" href="{% url 'hotel_view' %}">Visualizar Hotéis</a>
+    </ul>
   {% elif tipo == 'quartos' %}
-    <a href="{% url 'quarto_create' %}">Criar</a><br>
-    <a href="{% url 'quarto_view' %}">Listar</a>
+    <div class="container">
+      <h3 class="display-6">Diferentes quartos para diferentes clientes</h3>
+      <p>Quantos tipos de clientes existem??? Essa é uma pergunta impossível
+        de estimar uma resposta atualmente e de fato, diferentes pessoas possuem diferentes
+        necessidades! Aproveite para disponibilizar seu quarto em nosso sistema de forma 
+        totalmente grátis e tenha o quarto ideal, indicado à pessoa CERTA!
+      </p>
+    </div>
+    <ul class="md-6 container list-group list-group-horizontal-lg">
+        <a class="btn btn-outline-success" href="{% url 'quarto_create' %}">Criar</a><br>
+        <a class="btn btn-outline-info" href="{% url 'quarto_view' %}">Listar</a>
+    </ul>
+    
   {% elif tipo == 'recomendacoes' %}
-    <a href="{% url 'recomendacao_create' %}">Criar</a><br>
-    <a href="{% url 'recomendacao_view' %}">Listar</a>
+    <div class="container">
+      <h3 class="display-6">Quanto vale uma recomendação?</h3>
+      <p>Recomendações certas possuem um valor inestimável ao seu negócio! Afinal, 
+        não se trata apenas do dinheiro que você recebe do cliente e sim a forma
+        como ele vê o seu negócio! Aqui as recomendações são totalmente grátis!!! 
+        O que está esperando para começar??
+      </p>
+    </div>
+    <ul class="md-6 container list-group list-group-horizontal-lg">
+        <a class="btn btn-outline-success" href="{% url 'recomendacao_create' %}">Recomendar</a><br>
+        <a class="btn btn-outline-info" href="{% url 'recomendacao_view' %}">Visualizar recomendações</a>
+    </ul>
+    
   {% elif tipo == 'pessoas' %}
-    <a href="{% url 'pessoa_create' %}">Criar</a><br>
-    <a href="{% url 'pessoa_view' %}">Listar</a>
+    <div class="container">
+      <h3 class="display-6">Pessoas =D</h3>
+      <p>Vivemos e construímos tudo como pessoas para pessoas! Elas são tudo para nós e esse é nosso maior valor,
+        afinal não teria sentido algum tanto trabalho para não compartilhar com o próximo.
+        Se você também pensa dessa forma, este é o lugar certo!
+      </p>
+    </div>
+    <ul class="md-6 container list-group list-group-horizontal-lg">
+        <a class="btn btn-outline-success" href="{% url 'pessoa_create' %}">Criar</a><br>
+        <a class="btn btn-outline-info" href="{% url 'pessoa_view' %}">Listar</a>
+    </ul>
+    
   {% else %}
       Erro!
   {% endif %}
+</div>
 </body>
 
 {% endblock %}

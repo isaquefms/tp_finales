@@ -37,8 +37,11 @@ PROJECT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.core.apps.CoreConfig',
-    'apps.api.apps.ApiConfig'
+    'apps.api.apps.ApiConfig',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DEPENDENCY_APPS = []
 

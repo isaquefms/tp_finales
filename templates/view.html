@@ -21,50 +21,40 @@
   </head>
   <body>
       {% if tipo == 'clientes' %}
-          <h1>Clientes</h1>
-          <div class="container">
+          <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Clientes</h1>
+          <ul class="container list-group">
             {% for cliente in clientes %}
-              <div class="row">
-                {{ cliente }}
-              </div>
+              <li class="text-center list-group-item">{{ cliente }}</li>  
             {% endfor %}
-          </div>
+          </ul>
       {% elif tipo == 'hoteis' %}
-          <h1>Hoteis</h1>
-          <div class="container">
+          <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Hoteis</h1>
+          <ul class="container list-group"></ul>
             {% for hotel in hoteis %}
-              <div class="row">
-                {{ hotel }}
-              </div>
+              <li class="text-center list-group-item"> {{ hotel }}</li>
             {% endfor %}
-          </div>
+          </ul>
       {% elif tipo == 'quartos' %}
-          <h1>Quartos</h1>
-          <div class="container">
+          <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Quartos</h1>
+          <ul class="container list-group">
             {% for quarto in quartos %}
-              <div class="row">
-                {{ quarto }}
-              </div>
+              <li class="text-center list-group-item">{{ quarto }}</li>
             {% endfor %}
-          </div>
+          </ul>
       {% elif tipo == 'recomendacoes' %}
-          <h1>Recomendacoes</h1>
-          <div class="container">
+          <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Recomendacoes</h1>
+          <ul class="container list-group">
             {% for recomendacao in recomendacoes %}
-              <div class="row">
-                {{ recomendacao }}
-              </div>
+              <li class="text-center list-group-item">{{ recomendacao }}</li>
             {% endfor %}
-          </div>
+          </ul>  
       {% elif tipo == 'pessoas' %}
-          <h1>Pessoas</h1>
-          <div class="container">
+          <h1 class="text-center container col-6 mb-2 bg-light text-dark shadow-sm p-3 mb-5 bg-white rounded">Pessoas</h1>
+            <ul class="container list-group">
             {% for pessoa in pessoas %}
-              <div class="row">
-                {{ pessoa }}
-              </div>
+                  <li class="text-center list-group-item">{{ pessoa }}</li>
             {% endfor %}
-          </div>
+            </ul>          
       {% else %}
           <h1>Erro!</h1>
       {% endif %}
