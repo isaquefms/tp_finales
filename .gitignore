@@ -1,7 +1,7 @@
 ## .gitgnore do projeto de recomendações
 
 # Retirar o banco de dados sqlite local
-db.sqlite3
+# db.sqlite3
 
 # Retirar todos os arquivos de cache
 *.pyc
